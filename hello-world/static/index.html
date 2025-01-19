@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello, World!</title>
+</head>
+
+<body>
+    <button id="fetchButton">Fetch Data</button>
+    <div id="result"></div>
+
+    <script>
+        const fetchButton = document.getElementById('fetchButton');
+        const resultDiv = document.getElementById('result');
+
+        fetchButton.addEventListener('click', () => {
+            fetch('http://localhost:8000/')
+                .then(response => response.json())
+                .then(data => {
+                    resultDiv.textContent = data.message;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>

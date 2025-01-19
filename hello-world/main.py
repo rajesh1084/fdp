@@ -12,7 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount the static files directory
+# Mount the 'static' folder for serving static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 

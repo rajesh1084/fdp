@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Sample API
+  version: 0.1.0
+  description: This is a sample API for demonstration purposes.
+
+paths:
+  /items:
+    post:
+      summary: Create a new item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '201':
+          description: Item created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+
+  /items/{item_id}:
+    get:
+      summary: Get an item
+      parameters:
+        - in: path
+          name: item_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Item found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          description: Item not found
+
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the item
+        description:
+          type: string
+          description: Description of the item
+        price:
+          type: number
+          format: float
+          description: Price of the item

@@ -1,6 +1,19 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
+
+
+class Record(BaseModel):
+    subject: str
+    marks: int
+
+
+class Student(BaseModel):
+    rollno: int
+    name: str
+    marks: list[Record]
+
 
 app = FastAPI()
 
@@ -22,40 +35,44 @@ students = []
 
 
 @app.post("/students/")
-async def add_student(student_id: int, name: str, marks: list):
+async def add_student(record: Student):
     """
     Adds a new student with their initial marks.
 
     Args:
-        student_id (int): The student's ID.
-        name (str): The student's name.
-        marks (list): A list of dictionaries,
-                     where each dictionary contains "subject" and "marks".
-                     Example: [{"subject": "Math", "marks": 85}, {"subject": "Science", "marks": 90}]
+        record (Student): The student's information.
 
     Returns:
         dict: A dictionary with a message indicating success.
     """
-    new_student = {"student_id": student_id, "name": name, "marks": marks}
-    students.append(new_student)
+    students.append(record)
     return {"message": "Student added successfully"}
 
 
 @app.get("/students/{student_id}")
-async def get_student_marks(student_id: int):
+async def get_student_marks(rollno: int):
     """
     Retrieves marks for a specific student.
 
     Args:
-        student_id (int): The student's ID.
+        Roll No (int): The student's .
 
     Returns:
         dict: A dictionary containing the student's ID, name, and marks.
     """
-    for student in students:
-        if student["student_id"] == student_id:
-            return student
-    raise HTTPException(status_code=404, detail="Student not found")
+    # for student in students:
+    #     if student.rollno == rollno:
+    #         return {
+    #             "rollno": student.rollno,
+    #             "name": student.name,
+    #             "marks": student.marks,
+    #         }
+    # or using list comprehension
+    ret = [s for s in students if s.rollno == rollno]
+    if not ret:
+        raise HTTPException(status_code=404, detail="Student not found")
+    return ret
+    # raise HTTPException(status_code=404, detail="Student not found")
 
 
 @app.get("/students/")

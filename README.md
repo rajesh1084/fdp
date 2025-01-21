@@ -47,7 +47,7 @@ FastAPI is a simple, modern, high-performance web framework for building APIs wi
   pip install fastapi uvicorn "uvicorn[standard]" "fastapi[standard]" 
   ```
 
-## **Build a hello world API using Python FastAPI**
+## **Build a `Hello World` API using Python FastAPI**
 
 * create a basic GET endpoint ("Hello World")
 * **API Specification**: It is a contract between the API provider and the API consumers, ensuring that both parties understand how to interact with the API correctly.
@@ -58,7 +58,7 @@ FastAPI is a simple, modern, high-performance web framework for building APIs wi
   uvicorn main:app --reload
   ```
  
-## **Build a student-marks using Python FastAPI**
+## **Build a `Student App` using Python FastAPI**
 * APIs:
   - POST /students - Create a student record
   - GET /students - Get all students' details

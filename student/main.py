@@ -60,19 +60,19 @@ async def get_student_marks(rollno: int):
     Returns:
         dict: A dictionary containing the student's ID, name, and marks.
     """
-    # for student in students:
-    #     if student.rollno == rollno:
-    #         return {
-    #             "rollno": student.rollno,
-    #             "name": student.name,
-    #             "marks": student.marks,
-    #         }
+    for student in students:
+        if student.rollno == rollno:
+            return {
+                "rollno": student.rollno,
+                "name": student.name,
+                "marks": student.marks,
+            }
+    raise HTTPException(status_code=404, detail="Student not found")
     # or using list comprehension
-    ret = [s for s in students if s.rollno == rollno]
-    if not ret:
-        raise HTTPException(status_code=404, detail="Student not found")
-    return ret
-    # raise HTTPException(status_code=404, detail="Student not found")
+    # ret = [s for s in students if s.rollno == rollno]
+    # if not ret:
+    #     raise HTTPException(status_code=404, detail="Student not found")
+    # return ret
 
 
 @app.get("/students/")

@@ -61,7 +61,6 @@ FastAPI is a simple, modern, high-performance web framework for building APIs wi
 ## **Build a student-marks using Python FastAPI**
 * APIs:
   - POST /students - Create a student record
-  - PATCH /students/{id}  - Add marks to an existing student (update the student record)
   - GET /students - Get all students' details
   - GET /students/{id} - Get details of a student
 * Run the application and show the output

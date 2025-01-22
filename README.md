@@ -16,8 +16,7 @@
 
 ## **Transition to APIs**
 
-Now that we have a basic understanding of Python, let's explore how it can be used to build powerful APIs. An API, <br>
-or Application Programming Interface, acts as a messenger between different software systems, allowing them to communicate and exchange data.
+An API, or Application Programming Interface, acts as a messenger between different software systems, allowing them to communicate and exchange data.
 **Analogy:** Restaurant Order
 
 * Synchronous - REST, GRPC etc
@@ -76,10 +75,9 @@ FastAPI is a simple, modern, high-performance web framework for building APIs wi
 * Brief introduction to AI Agents
  
 ## **Summary**
-* Share contact information
 
-## Contact Info
+## **Contact Info**
 
-## git commands
+## **git commands**
 * Clone this repo: git clone https://github.com/rajesh1084/fdp.git (or fork this repo)
 

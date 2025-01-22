@@ -75,5 +75,11 @@ FastAPI is a simple, modern, high-performance web framework for building APIs wi
 * Interfacing with models using Python/Jupiter Notebook
 * Brief introduction to AI Agents
  
-## **Conclusion**
-* Share contact information  
+## **Summary**
+* Share contact information
+
+## Contact Info
+
+## git commands
+* Clone this repo: git clone https://github.com/rajesh1084/fdp.git (or fork this repo)
+

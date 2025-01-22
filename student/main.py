@@ -27,8 +27,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Mount the 'static' folder for serving static files
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # In-memory storage (for simplicity)
 students = []
@@ -55,7 +53,7 @@ async def get_student_marks(rollno: int):
     Retrieves marks for a specific student.
 
     Args:
-        Roll No (int): The student's .
+        Roll No (int): The student's roll no.
 
     Returns:
         dict: A dictionary containing the student's ID, name, and marks.

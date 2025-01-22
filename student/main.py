@@ -1,6 +1,4 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 
@@ -16,16 +14,6 @@ class Student(BaseModel):
 
 
 app = FastAPI()
-
-origins = ["*"]  # Replace with actual allowed origins in production
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 # In-memory storage (for simplicity)
